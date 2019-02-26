@@ -8,27 +8,8 @@ var uglify          = require('gulp-uglify');
 var sourcemaps      = require('gulp-sourcemaps');
 var imagemin        = require('gulp-imagemin');
 
-// Static Server + watching scss/html files
-gulp.task('serve', ['sass','js'], function() {
-
-   
-    browserSync.init({
-        open: false,
-        server: {
-            baseDir: "./app"
-        }
-    });
-
-    gulp.watch("app/static/scss/*.scss", ['sass']);
-    gulp.watch("app/static/js/*.js", ['js']);
-    gulp.watch("app/*.html").on('change', browserSync.reload);
-    gulp.watch("app/static/css/*.css").on('change', browserSync.reload);
-    gulp.watch(["app/static/jsmin/*.js"]).on('change', browserSync.reload);
-});
-
-
-gulp.task('js',function(){
-    return gulp.src(["app/static/js/*.js"])
+const minifiedJavascript = ()=>{
+    return gulp.src(["app/static/src/js/*.js"])
     .pipe(sourcemaps.init())
     .pipe(uglify()).on('error',function(err){
             console.log(err.message);
@@ -40,19 +21,18 @@ gulp.task('js',function(){
             file.extname = ".min.js"
      }))
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest("app/static/jsmin"))
-});
+    .pipe(gulp.dest("app/static/dist/js"))
 
-gulp.task('imagemin',function(){
-  return gulp.src(["app/static/images"])
-  .pipe(imagemin({verbose:true}))
-  .pipe(gulp.dest("."))
-});
+}
 
+const minifiedImages =()=>{
+    return gulp.src(["app/static/src/images"])
+    .pipe(imagemin({verbose:true}))
+    .pipe(gulp.dest("app/static/dist/images/"))
+}
 
-// Compile sass into CSS & auto-inject into browsers
-gulp.task('sass', function() {
-    return gulp.src(["app/static/scss/*.scss"])
+const minifiedCss = ()=>{
+    return gulp.src(["app/static/src/scss/*.scss"])
         .pipe(sourcemaps.init())
         .pipe(sass({
             errLogToConsole: true,
@@ -68,8 +48,28 @@ gulp.task('sass', function() {
             cascade: false
         }))
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest("app/static/css"))
+        .pipe(gulp.dest("app/static/dist/css"))
         .pipe(browserSync.stream());
-});
 
-gulp.task('default', ['serve']);
+}
+
+const browserSyncServer = ()=>{
+    browserSync.init({
+        open: false,
+        server: {
+            baseDir: "./app"
+        }
+    });
+
+    gulp.watch("app/static/src/scss/*.scss", gulp.series(minifiedCss));
+    gulp.watch("app/static/src/js/*.js", gulp.series(minifiedJavascript));
+    gulp.watch("app/*.html").on('change', browserSync.reload);
+    gulp.watch("app/static/dist/css/*.css").on('change', browserSync.reload);
+    gulp.watch("app/static/dist/js/*.js").on('change', browserSync.reload);
+
+}
+
+const minifiedAssets = gulp.parallel([minifiedCss,minifiedJavascript,minifiedImages])
+const server = gulp.series(browserSyncServer,minifiedAssets)
+
+exports.default  = server
