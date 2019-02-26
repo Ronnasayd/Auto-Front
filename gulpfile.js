@@ -26,9 +26,19 @@ const minifiedJavascript = ()=>{
 }
 
 const minifiedImages =()=>{
-    return gulp.src(["app/static/src/images"])
-    .pipe(imagemin({verbose:true}))
-    .pipe(gulp.dest("app/static/dist/images/"))
+    return gulp.src(["app/static/images/**"],{allowEmpty: true})
+    .pipe(imagemin([
+        imagemin.gifsicle({interlaced: true}),
+        imagemin.jpegtran({progressive: true}),
+        imagemin.optipng({optimizationLevel: 5}),
+        imagemin.svgo({
+            plugins: [
+                {removeViewBox: true},
+                {cleanupIDs: false}
+            ]
+        })
+    ]))
+    .pipe(gulp.dest("app/static/images"))
 }
 
 const minifiedCss = ()=>{
@@ -69,7 +79,8 @@ const browserSyncServer = ()=>{
 
 }
 
-const minifiedAssets = gulp.parallel([minifiedCss,minifiedJavascript,minifiedImages])
-const server = gulp.series(browserSyncServer,minifiedAssets)
+const minifiedAssets = gulp.parallel(minifiedCss,minifiedJavascript)
+const server = gulp.series(minifiedAssets,browserSyncServer)
 
+exports.imagemin = minifiedImages
 exports.default  = server
