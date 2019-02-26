@@ -12,6 +12,7 @@ then
   yarn add gulp-uglify
   yarn add gulp-sourcemaps
   yarn add gulp-imagemin
+  yarn add gulp-purgecss
   gulp
 else
   yarn

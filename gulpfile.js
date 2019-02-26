@@ -1,12 +1,13 @@
 
-var gulp            = require('gulp');
-var browserSync     = require('browser-sync').create();
-var sass            = require('gulp-sass');
-var rename          = require('gulp-rename');
-var autoprefixer    = require('gulp-autoprefixer');
-var uglify          = require('gulp-uglify');
-var sourcemaps      = require('gulp-sourcemaps');
-var imagemin        = require('gulp-imagemin');
+const gulp            = require('gulp');
+const browserSync     = require('browser-sync').create();
+const sass            = require('gulp-sass');
+const rename          = require('gulp-rename');
+const autoprefixer    = require('gulp-autoprefixer');
+const uglify          = require('gulp-uglify');
+const sourcemaps      = require('gulp-sourcemaps');
+const imagemin        = require('gulp-imagemin');
+const purgecss        = require('gulp-purgecss')
 
 const minifiedJavascript = ()=>{
     return gulp.src(["app/static/src/js/*.js"])
@@ -56,6 +57,9 @@ const minifiedCss = ()=>{
         .pipe(autoprefixer({
             browsers: ['last 100 versions'],
             cascade: false
+        }))
+        .pipe(purgecss({
+            content: ["app/**/*.html"]
         }))
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest("app/static/dist/css"))
