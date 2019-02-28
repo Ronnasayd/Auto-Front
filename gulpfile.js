@@ -78,7 +78,6 @@ const browserSyncServer = ()=>{
     gulp.watch("app/static/src/scss/*.scss", gulp.series(minifiedCss));
     gulp.watch("app/static/src/js/*.js", gulp.series(minifiedJavascript));
     gulp.watch("app/*.html").on('change', browserSync.reload);
-    gulp.watch("app/static/dist/css/*.css").on('change', browserSync.reload);
     gulp.watch("app/static/dist/js/*.js").on('change', browserSync.reload);
 
 }

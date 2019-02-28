@@ -1,12 +1,15 @@
-$color-default: #030d5f;
+$color-default: #9c5b06;
 
 .teste2{
     font-family: 'Roboto', sans-serif;
-    font-weight: 800;
+    font-weight: 900;
     font-size: 25px;
     color:$color-default;
 }
 .teste1{
     position: absolute;
     display: block;
+}
+.image{
+    width: 300px;
 }
