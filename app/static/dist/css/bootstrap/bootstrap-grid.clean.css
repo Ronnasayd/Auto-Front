@@ -1,0 +1,77 @@
+/*!
+ * Bootstrap Grid v4.3.1 (https://getbootstrap.com/)
+ * Copyright 2011-2019 The Bootstrap Authors
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -ms-overflow-style: scrollbar; }
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; }
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto; }
+  @media (min-width: 576px) {
+    .container {
+      max-width: 540px; } }
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px; } }
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px; } }
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px; } }
+
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto; }
+
+
+.my-2 {
+  margin-top: 0.5rem !important; }
+
+.mb-2,
+.my-2 {
+  margin-bottom: 0.5rem !important; }
+
+.mr-auto {
+  margin-right: auto !important; }
+
+@media (min-width: 576px) {
+  
+  .my-sm-0 {
+    margin-top: 0 !important; }
+  
+  .my-sm-0 {
+    margin-bottom: 0 !important; }
+  .mr-sm-2 {
+    margin-right: 0.5rem !important; } }
+
+@media (min-width: 992px) {
+  
+  .my-lg-0 {
+    margin-top: 0 !important; }
+  
+  .my-lg-0 {
+    margin-bottom: 0 !important; } }
+
+/*# sourceMappingURL=bootstrap-grid.css.map */
+
+/*# sourceMappingURL=bootstrap-grid.clean.css.map */

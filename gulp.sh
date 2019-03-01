@@ -13,6 +13,11 @@ then
   yarn add --no-bin-links gulp-sourcemaps
   yarn add --no-bin-links gulp-imagemin
   yarn add --no-bin-links gulp-clean-css
+  yarn add --no-bin-links gulp-html-beautify
+  yarn add --no-bin-links minimist
+  yarn add --no-bin-links gulp-purgecss
+  yarn add --no-bin-links gulp-concat
+  yarn add --no-bin-links gulp-cached
   gulp
 else
   yarn --no-bin-links
