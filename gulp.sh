@@ -3,18 +3,18 @@
 file="./package.json"
 if [ ! -f "$file" ]
 then
-  yarn add gulp
-  yarn add node-sass
-  yarn add browser-sync
-  yarn add gulp-sass
-  yarn add gulp-rename
-  yarn add gulp-autoprefixer
-  yarn add gulp-uglify
-  yarn add gulp-sourcemaps
-  yarn add gulp-imagemin
-  yarn add gulp-purgecss
+  yarn add --no-bin-links gulp
+  yarn add --no-bin-links node-sass
+  yarn add --no-bin-links browser-sync
+  yarn add --no-bin-links gulp-sass
+  yarn add --no-bin-links gulp-rename
+  yarn add --no-bin-links gulp-autoprefixer
+  yarn add --no-bin-links gulp-uglify
+  yarn add --no-bin-links gulp-sourcemaps
+  yarn add --no-bin-links gulp-imagemin
+  yarn add --no-bin-links gulp-clean-css
   gulp
 else
-  yarn
+  yarn --no-bin-links
   gulp
 fi
