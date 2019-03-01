@@ -17,7 +17,9 @@ const concat          = require('gulp-concat');
 //  gulp concatfiles --files <list_of_files:file1,file2,file3> --name <name_of_file:all.js> --dist <destination>
 const concatFiles = ()=>{
     let options = minimist(process.argv.slice(2));
-    console.log("files: "+options.files+"\nname: "+options.name+"\ndist: "+options.dist);
+    console.log("files: "+options.files);
+    console.log("name: "+options.name);
+    console.log("dist: "+options.dist);
     return gulp.src(options.files.split(","))
     .pipe(cache('concatcss'))
     .pipe(sourcemaps.init())
@@ -32,7 +34,7 @@ const unusedCss = ()=>{
     .pipe(cache('cssclean'))
     .pipe(sourcemaps.init())
     .pipe(purgecss({
-        content: ["app/**/*.html"]
+        content: ["app/**/*.html","!node_modules/**/*.html"]
     }))
     .pipe(rename(function(file){
         file.extname = ".clean.css"
@@ -46,7 +48,7 @@ const htmlBeauty = ()=>{
     const options = {
         indentSize: 2,
       };
-    return gulp.src('app/**/*.html',{base: './'})
+    return gulp.src(['app/**/*.html',"!node_modules/**/*.html"],{base: './'})
     .pipe(cache('html'))
     .pipe(htmlbeautify(options))
     .pipe(gulp.dest('./'))
@@ -65,6 +67,10 @@ const minifiedCss = ()=>{
     .pipe(browserSync.stream());
 }
 
+const browserReload = (done)=>{
+    browserSync.reload();
+    done();
+}
 
 const minifiedJavascript = ()=>{
     return gulp.src(["app/static/src/js/**/*.js","!app/static/src/js/**/_*.js"])
@@ -134,8 +140,8 @@ const browserSyncServer = ()=>{
 
     gulp.watch("app/static/src/scss/**/*.scss", gulp.series(sassToCss, minifiedCss, unusedCss));
     gulp.watch("app/static/src/js/**/*.js", gulp.series(minifiedJavascript));
-    gulp.watch("app/**/*.html").on('change', gulp.series(htmlBeauty, browserSync.reload));
-    gulp.watch("app/static/dist/js/**/*.js").on('change', browserSync.reload);
+    gulp.watch("app/**/*.html", gulp.series(htmlBeauty, browserReload));
+    gulp.watch("app/static/src/js/**/*.js", gulp.series(minifiedJavascript, browserReload));
 
 }
 
