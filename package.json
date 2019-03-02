@@ -1,26 +1,26 @@
 {
   "dependencies": {
     "browser-sync": "^2.26.3",
+    "eslint-config-google": "^0.12.0",
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^6.0.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.0.0",
     "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^5.0.0",
     "gulp-html-beautify": "^1.0.1",
+    "gulp-if": "^2.0.2",
     "gulp-imagemin": "^5.0.3",
     "gulp-purgecss": "^1.1.1",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglify": "^3.0.1",
+    "gulp-stylelint": "^8.0.0",
+    "gulp-uglify": "^3.0.2",
     "minimist": "^1.2.0",
     "node-sass": "^4.11.0",
-    "gulp-cached":"^1.1.1",
-    "gulp-eslint":"^5.0.0",
-    "gulp-if":"^2.0.2",
-    "eslint-config-google":"^0.12.0",
-    "gulp-clean":"^0.4.0",
-    "gulp-stylelint":"^8.0.0",
-    "stylelint-config-standard":"^18.2.0",
-    "stylelint":"9.10.1"
+    "stylelint": "^9.10.1",
+    "stylelint-config-standard": "^18.2.0"
   }
 }

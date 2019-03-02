@@ -15,7 +15,6 @@ const concat          = require("gulp-concat");
 const eslint          = require("gulp-eslint");
 const gulpIf          = require("gulp-if");
 const clean           = require("gulp-clean");
-
 const gulpStylelint   = require('gulp-stylelint');
 
 
@@ -57,9 +56,14 @@ const copyFonts = () =>{
 }
 
 const styleLint = ()=> {   
-    return gulp.src([src_css,not_node],{base: "./", allowEmpty: true})
+    return gulp.src([src_css, not_node],{base: "./", allowEmpty: true})
     .pipe(cache("styleLint"))
-    .pipe(gulpStylelint({fix: true}))
+    .pipe(gulpStylelint({
+        fix: true,
+        failAfterError: true, 
+        reporters: [
+        {formatter: 'string', console: true}
+        ]}))
     .pipe(gulp.dest('./'))
 }
 
@@ -212,7 +216,7 @@ const browserSyncServer = ()=>{
         }
     });
 
-    gulp.watch("app/static/src/**/*.{scss,css}", css_line);
+    gulp.watch([src_css,src_scss], css_line);
     gulp.watch(src_js, gulp.series(js_line,browserReload));
     gulp.watch(src_images, image_line);
     gulp.watch(src_fonts, fonts_line);
