@@ -18,6 +18,13 @@ then
   yarn add --no-bin-links gulp-purgecss
   yarn add --no-bin-links gulp-concat
   yarn add --no-bin-links gulp-cached
+  yarn add --no-bin-links gulp-eslint
+  yarn add --no-bin-links gulp-if
+  yarn add --no-bin-links eslint-config-google
+  yarn add --no-bin-links gulp-clean
+  yarn add --no-bin-links stylelint
+  yarn add --no-bin-links gulp-stylelint
+  yarn add --no-bin-links stylelint-config-standard
   gulp
 else
   yarn --no-bin-links
