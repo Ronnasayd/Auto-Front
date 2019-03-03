@@ -13,6 +13,7 @@ const cache           = require("gulp-cached");
 const minimist        = require("minimist");
 const concat          = require("gulp-concat");
 const clean           = require("gulp-clean");
+const sassPartials    = require('gulp-sass-partials-imported');
 
 
 
@@ -54,6 +55,7 @@ const sassToCss = ()=>{
     return gulp.src([src_scss,"!_*.scss",not_node],{allowEmpty: true})
         .pipe(cache("sassToCss"))
         .pipe(sourcemaps.init())
+        .pipe(sassPartials("app/static/src/scss"))
         .pipe(sass({
             errLogToConsole: true,
             indentedSyntax: false,
@@ -171,7 +173,7 @@ const browserSyncServer = ()=>{
     gulp.watch([src_css,src_scss], css_line);
     gulp.watch(src_js, gulp.series(js_line,browserReload));
     gulp.watch(images_folder, image_line);
-    gulp.watch(html_files, gulp.parallel(html_line,browserReload));
+    gulp.watch(html_files, gulp.series(html_line,browserReload));
 }
 
 const server = gulp.series(gulp.parallel(js_line,css_line,image_line,html_line),browserSyncServer)

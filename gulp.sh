@@ -18,6 +18,7 @@ then
   yarn add --no-bin-links gulp-concat
   yarn add --no-bin-links gulp-cached
   yarn add --no-bin-links gulp-clean
+  yarn add --no-bin-links gulp-sass-partials-imported
   gulp
 else
   yarn --no-bin-links
