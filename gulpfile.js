@@ -170,10 +170,10 @@ const browserSyncServer = ()=>{
         }
     });
 
-    gulp.watch([src_css,src_scss], css_line);
-    gulp.watch(src_js, gulp.series(js_line,browserReload));
-    gulp.watch(images_folder, image_line);
-    gulp.watch(html_files, gulp.series(html_line,browserReload));
+    gulp.watch([src_css,src_scss], {interval: 100, usePolling: true}, css_line);
+    gulp.watch(src_js, {interval: 100, usePolling: true}, gulp.series(js_line,browserReload));
+    gulp.watch(images_folder, {interval: 100, usePolling: true}, image_line);
+    gulp.watch(html_files, {interval: 100, usePolling: true}, gulp.series(html_line,browserReload));
 }
 
 const server = gulp.series(gulp.parallel(js_line,css_line,image_line,html_line),browserSyncServer)
