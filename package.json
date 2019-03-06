@@ -20,7 +20,6 @@
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
     "gulp-cached": "latest",
-    "gulp-clean": "latest",
     "gulp-clean-css": "latest",
     "gulp-concat": "latest",
     "gulp-html-beautify": "latest",
