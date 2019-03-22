@@ -31,6 +31,8 @@
     "gulp-uglify": "latest",
     "minimist": "latest",
     "node-sass": "latest",
-    "gulp-sass-partials-imported":"latest"
+    "gulp-sass-partials-imported":"latest",
+    "jshint":"latest",
+    "gulp-jshint":"latest"
   }
 }

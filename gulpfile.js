@@ -13,6 +13,7 @@ const cache           = require("gulp-cached");
 const minimist        = require("minimist");
 const concat          = require("gulp-concat");
 const sassPartials    = require('gulp-sass-partials-imported');
+const jshint          = require('gulp-jshint');
 
 
 
@@ -30,6 +31,13 @@ const dist_css        = "app/static/dist/css/"
 
 const html_files      = "app/**/*.html"
 
+
+const jsHint = ()=>{
+    return gulp.src([src_js,not_node],{allowEmpty: true})
+    .pipe(cache("jsHint"))
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+}
 
 const minifyJs = ()=>{
     return gulp.src([src_js,not_node],{allowEmpty: true})
@@ -155,7 +163,7 @@ const minifyImages =()=>{
 }
 
 
-const js_line = gulp.series(minifyJs);
+const js_line = gulp.series(jsHint,minifyJs);
 const sass_line = gulp.series(sassToCssMin)
 const css_line = gulp.series(minifyCss);
 const image_line = gulp.series(minifyImages);
