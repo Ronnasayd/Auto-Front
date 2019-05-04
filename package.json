@@ -1,4 +1,4 @@
-{  
+{
   "name": "django-docker",
   "description": "Package.json for development front utilities of django-docker",
   "version": "3.2.10",
@@ -14,7 +14,6 @@
   "bugs": {
     "url": "https://github.com/Ronnasayd/django-docker/issues"
   },
-
   "dependencies": {
     "browser-sync": "latest",
     "gulp": "latest",
@@ -22,7 +21,6 @@
     "gulp-cached": "latest",
     "gulp-clean-css": "latest",
     "gulp-concat": "latest",
-    "gulp-html-beautify": "latest",
     "gulp-imagemin": "latest",
     "gulp-purgecss": "latest",
     "gulp-rename": "latest",
@@ -31,8 +29,8 @@
     "gulp-uglify": "latest",
     "minimist": "latest",
     "node-sass": "latest",
-    "gulp-sass-partials-imported":"latest",
-    "jshint":"latest",
-    "gulp-jshint":"latest"
+    "gulp-sass-partials-imported": "latest",
+    "jshint": "latest",
+    "gulp-jshint": "latest"
   }
 }
