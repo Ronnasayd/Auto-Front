@@ -6,3 +6,6 @@ patch:
   'npm:lodash:20180130':
     - gulp-html-beautify > rcloader > lodash:
         patched: '2019-03-03T21:27:37.769Z'
+  SNYK-JS-AXIOS-174505:
+    - browser-sync > localtunnel > axios:
+        patched: '2019-05-06T03:49:27.899Z'
