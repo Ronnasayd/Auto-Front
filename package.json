@@ -1,18 +1,18 @@
 {
-  "name": "django-docker",
+  "name": "autofront",
   "description": "Package.json for development front utilities of django-docker",
-  "version": "3.2.10",
-  "main": "index.js",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
   "author": "Ronnasayd de Sousa Machado",
   "license": "MIT",
-  "homepage": "https://github.com/Ronnasayd/django-docker",
+  "homepage": "https://github.com/Ronnasayd/Auto-Front",
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Ronnasayd/django-docker.git"
+    "url": "https://github.com/Ronnasayd/Auto-Front.git"
   },
   "bugs": {
-    "url": "https://github.com/Ronnasayd/django-docker/issues"
+    "url": "https://github.com/Ronnasayd/Auto-Front/issues"
   },
   "dependencies": {
     "browser-sync": "latest",
@@ -23,7 +23,6 @@
     "gulp-concat": "latest",
     "gulp-imagemin": "latest",
     "gulp-jshint": "latest",
-    "gulp-purgecss": "latest",
     "gulp-rename": "latest",
     "gulp-sass": "latest",
     "gulp-sass-partials-imported": "latest",
@@ -38,5 +37,11 @@
     "@babel/preset-env": "^7.5.4",
     "gulp-babel": "^8.0.0",
     "webpack-stream": "^5.2.1"
-  }
+  },
+  "browserslist": [
+    "last 100 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ]
 }

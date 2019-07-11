@@ -1,0 +1,87 @@
+$video-width:700px;
+$default-color:rgb(255, 255, 255);
+$controls-button-size:20px;
+
+*{
+    transition: all ease-in-out 1s;
+}
+body,html{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: black;
+}
+
+.video-container{
+    position: absolute;
+    $top:50%;
+    $left:50%;
+    top: $top;
+    left: $left;
+    transform: translate(-$left,-$top);
+
+    & > video{
+        width: $video-width;
+        height: 400px;
+    }
+}
+
+.video-controls{
+    position: absolute;
+    bottom: 0;
+    width: $video-width;
+    height: 70px;
+    background: rgba(0,0,0,0.75);
+    &[data-display=true]{
+        display: block;
+    }
+    &[data-display=false]{
+        display: none;
+    }
+}
+.video-subcontainer{
+    position: absolute;
+}
+.play-pause-button{
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    margin-left: 30px;
+    transform: translateY(-45%);
+    & > i{
+        color: $default-color;
+        font-size: $controls-button-size;
+        &[data-display=false]{
+            display: none;
+        }
+        &[data-display=true]{
+            display: block;
+        }
+    }
+}
+
+.step-backward{
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    left: 12%;
+    transform: translate(-12%,-45%);
+    & > i{
+        color: $default-color;
+        font-size: $controls-button-size;
+    }
+}
+
+.step-forward{
+    cursor: pointer;
+    position: absolute;
+    top: 45%;
+    left: 19%;
+    transform: translate(-19%,-45%);
+    & > i{
+        color: $default-color;
+        font-size: $controls-button-size;
+    }
+}

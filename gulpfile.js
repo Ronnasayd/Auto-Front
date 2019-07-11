@@ -7,7 +7,6 @@ const minifyjs = require("gulp-uglify");
 const sourcemaps = require("gulp-sourcemaps");
 const imagemin = require("gulp-imagemin");
 const cleanCSS = require("gulp-clean-css");
-const purgecss = require("gulp-purgecss");
 const cache = require("gulp-cached");
 const minimist = require("minimist");
 const concat = require("gulp-concat");
@@ -100,11 +99,7 @@ const sassToCssMin = () => {
             browserSync.notify(err.message, 3000); // Display error in the browser
             this.emit("end"); // Prevent gulp from catching the error and exiting the watch process
         }))
-        .pipe(autoprefixer({
-            browsers: ["last 100 versions"],
-            cascade: false
-        }))
-        .pipe(purgecss({ content: [html_files, not_node] }))
+        .pipe(autoprefixer())
         .on("error", function (err) {
             console.log(err.message, err);
             browserSync.notify(err.message, 3000); // Display error in the browser
@@ -123,11 +118,7 @@ const minifyCss = () => {
     return gulp.src([src_css, "!_*.css", not_node], { allowEmpty: true })
         .pipe(cache("minifyCss"))
         .pipe(sourcemaps.init({ loadMaps: true, largeFile: true }))
-        .pipe(autoprefixer({
-            browsers: ["last 100 versions"],
-            cascade: false
-        }))
-        .pipe(purgecss({ content: [html_files, not_node] }))
+        .pipe(autoprefixer())
         .on("error", function (err) {
             console.log(err.message, err);
             browserSync.notify(err.message, 3000); // Display error in the browser
