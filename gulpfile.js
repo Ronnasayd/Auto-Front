@@ -3,7 +3,7 @@ const browserSync = require("browser-sync").create();
 const sass = require("gulp-sass");
 const rename = require("gulp-rename");
 const autoprefixer = require("gulp-autoprefixer");
-const uglify = require("gulp-uglify");
+const minifyjs = require("gulp-uglify");
 const sourcemaps = require("gulp-sourcemaps");
 const imagemin = require("gulp-imagemin");
 const cleanCSS = require("gulp-clean-css");
@@ -13,6 +13,9 @@ const minimist = require("minimist");
 const concat = require("gulp-concat");
 const sassPartials = require('gulp-sass-partials-imported');
 const jshint = require('gulp-jshint');
+const babel = require('gulp-babel');
+const webpack = require('webpack-stream');
+
 
 
 
@@ -34,7 +37,9 @@ const html_files = "app/**/*.html"
 const jsHint = () => {
     return gulp.src([src_js, not_node], { allowEmpty: true })
         .pipe(cache("jsHint"))
-        .pipe(jshint())
+        .pipe(jshint({
+            esnext: true
+        }))
         .pipe(jshint.reporter('default'));
 }
 
@@ -42,7 +47,10 @@ const minifyJs = () => {
     return gulp.src([src_js, not_node], { allowEmpty: true })
         .pipe(cache("minifyJs"))
         .pipe(sourcemaps.init())
-        .pipe(uglify()).on("error", function (err) {
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(minifyjs()).on("error", function (err) {
             console.log(err.message);
             console.log(err.cause);
             browserSync.notify(err.message, 3000); // Display error in the browser
@@ -54,6 +62,30 @@ const minifyJs = () => {
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest(dist_js))
 }
+
+const webPackJs = () => {
+    let basename;
+    return gulp.src([src_js, not_node], { allowEmpty: true })
+        .pipe(cache("webpackJs"))
+        .pipe(babel({
+            presets: ['@babel/env']
+        }))
+        .pipe(rename(function (file) {
+            basename = file.basename
+            console.log(basename)
+        }))
+        .pipe(webpack({
+            mode: "production",
+            devtool: 'source-map',
+            output: {
+                filename: () => {
+                    return basename + '.min.js'
+                }
+            }
+        }))
+        .pipe(gulp.dest(dist_js))
+}
+
 
 const sassToCssMin = () => {
     return gulp.src([src_scss, "!_*.scss", not_node], { allowEmpty: true })
@@ -151,7 +183,9 @@ const minifyImages = () => {
 }
 
 
-const js_line = gulp.series(jsHint, minifyJs);
+// const js_line = gulp.series(jsHint, minifyJs); // Use this line if you want minify the javascript
+const js_line = gulp.series(jsHint, webPackJs); // Use this line if  you want webpack javascript
+
 const sass_line = gulp.series(sassToCssMin)
 const css_line = gulp.series(minifyCss);
 const image_line = gulp.series(minifyImages);

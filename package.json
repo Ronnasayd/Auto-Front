@@ -22,15 +22,21 @@
     "gulp-clean-css": "latest",
     "gulp-concat": "latest",
     "gulp-imagemin": "latest",
+    "gulp-jshint": "latest",
     "gulp-purgecss": "latest",
     "gulp-rename": "latest",
     "gulp-sass": "latest",
+    "gulp-sass-partials-imported": "latest",
     "gulp-sourcemaps": "latest",
     "gulp-uglify": "latest",
-    "minimist": "latest",
-    "node-sass": "latest",
-    "gulp-sass-partials-imported": "latest",
     "jshint": "latest",
-    "gulp-jshint": "latest"
+    "minimist": "latest",
+    "node-sass": "latest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "gulp-babel": "^8.0.0",
+    "webpack-stream": "^5.2.1"
   }
 }
