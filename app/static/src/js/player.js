@@ -60,6 +60,17 @@ $('#slider-input').on('input', (e) => {
     );
 });
 
+$('#slider-input').mousemove((e) => {
+    $('#slider-output').attr('data-display', 'true')
+    let slidertime = moment().startOf('day').seconds((e.offsetX / e.target.offsetWidth) * videoplayer.duration).format('HH:mm:ss');
+    $('#slider-output').val(slidertime)
+    $('#slider-output').css('left', e.offsetX - $('#slider-output')[0].offsetWidth / 2)
+})
+
+$('#slider-input').mouseout((e) => {
+    $('#slider-output').attr('data-display', 'false')
+})
+
 
 $('#slider-input').on('change', (e) => {
     si = e.target;
@@ -69,12 +80,12 @@ $('#slider-input').on('change', (e) => {
     );
     let position = parseFloat(si.value) / 100;
     videoplayer.currentTime = videoplayer.duration * position;
-})
+});
 changeSlider = () => {
     let position = 100 * videoplayer.currentTime / videoplayer.duration;
     $('#slider-input').val(position);
     $('#slider-input').change();
-}
+};
 setInterval(() => {
     changeSlider();
 }, 1000);
