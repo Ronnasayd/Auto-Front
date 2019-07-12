@@ -13,10 +13,10 @@
 <body>
 
     <div class="video-container">
-        <video id="videoplayer" src="https://download.blender.org/peach/trailer/trailer_400p.ogg"></video>
+        <video autoplay id="videoplayer" src="https://download.blender.org/peach/trailer/trailer_400p.ogg"></video>
         <div class="video-controls">
             <div class="play-pause-button">
-                <i id="play-button" class="fa fa-play"></i>
+                <i id="play-button" class="fa fa-play" data-display="false"></i>
                 <i id="pause-button" class="fa fa-stop"></i>
             </div>
             <div class="step-backward">
@@ -25,6 +25,13 @@
 
             <div class="step-forward">
                 <i class="fa fa-step-forward"></i>
+            </div>
+            <div class="sound">
+                <i id="sound-icon" class="fa fa-volume-up"></i>
+                <input type="range" id="sound-input" max="100" min="0" value="100">
+            </div>
+            <div class="slider">
+                <input type="range" id="slider-input" max="100" min="0" value="0">
             </div>
         </div>
     </div>

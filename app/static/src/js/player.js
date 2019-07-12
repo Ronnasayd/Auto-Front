@@ -35,3 +35,47 @@ $('.step-backward').on('click', () => {
 $('.step-forward').on('click', () => {
     videoplayer.currentTime = videoplayer.currentTime + 5;
 });
+
+$('#sound-input').on('input', (e) => {
+    si = e.target;
+    $(si).css(
+        'background',
+        'linear-gradient(to right,red 0%, red ' + si.value + '%, white ' + si.value + '%, white 100%)'
+    );
+    videoplayer.volume = parseFloat(si.value) / 100;
+});
+
+$('#slider-input').mouseenter((e) => {
+    $(e.target).attr('data-display', 'thumb-hover');
+});
+$('#slider-input').mouseout((e) => {
+    $(e.target).removeAttr('data-display');
+});
+
+$('#slider-input').on('input', (e) => {
+    si = e.target;
+    $(si).css(
+        'background',
+        'linear-gradient(to right,red 0%, red ' + si.value + '%, white ' + si.value + '%, white 100%)'
+    );
+});
+
+
+$('#slider-input').on('change', (e) => {
+    si = e.target;
+    $(si).css(
+        'background',
+        'linear-gradient(to right,red 0%, red ' + si.value + '%, white ' + si.value + '%, white 100%)'
+    );
+    let position = parseFloat(si.value) / 100;
+    videoplayer.currentTime = videoplayer.duration * position;
+})
+changeSlider = () => {
+    let position = 100 * videoplayer.currentTime / videoplayer.duration;
+    $('#slider-input').val(position);
+    $('#slider-input').change();
+}
+setInterval(() => {
+    changeSlider();
+}, 1000);
+

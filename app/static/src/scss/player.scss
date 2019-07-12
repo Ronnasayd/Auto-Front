@@ -2,8 +2,15 @@ $video-width:700px;
 $default-color:rgb(255, 255, 255);
 $controls-button-size:20px;
 
+@mixin absolute-position($left,$top) {
+    position: absolute;
+    top: $top;
+    left: $left;
+    transform: translate(-$left,-$top);
+} 
+
 *{
-    transition: all ease-in-out 1s;
+    transition: all ease-in-out 0.1s;
 }
 body,html{
     margin: 0;
@@ -15,13 +22,7 @@ body{
 }
 
 .video-container{
-    position: absolute;
-    $top:50%;
-    $left:50%;
-    top: $top;
-    left: $left;
-    transform: translate(-$left,-$top);
-
+    @include absolute-position(50%,50%);
     & > video{
         width: $video-width;
         height: 400px;
@@ -33,7 +34,7 @@ body{
     bottom: 0;
     width: $video-width;
     height: 70px;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0,0,0,0.5);
     &[data-display=true]{
         display: block;
     }
@@ -46,10 +47,7 @@ body{
 }
 .play-pause-button{
     cursor: pointer;
-    position: absolute;
-    top: 45%;
-    margin-left: 30px;
-    transform: translateY(-45%);
+    @include absolute-position(5%,45% );
     & > i{
         color: $default-color;
         font-size: $controls-button-size;
@@ -64,10 +62,7 @@ body{
 
 .step-backward{
     cursor: pointer;
-    position: absolute;
-    top: 45%;
-    left: 12%;
-    transform: translate(-12%,-45%);
+    @include absolute-position(13%,45%);
     & > i{
         color: $default-color;
         font-size: $controls-button-size;
@@ -76,12 +71,72 @@ body{
 
 .step-forward{
     cursor: pointer;
-    position: absolute;
-    top: 45%;
-    left: 19%;
-    transform: translate(-19%,-45%);
+    @include absolute-position(20%,45%);
     & > i{
         color: $default-color;
         font-size: $controls-button-size;
     }
+}
+
+.sound{
+    cursor: pointer;
+    @include absolute-position(35%, 45%);
+    & > i{
+        color: $default-color;
+        font-size: 25px;
+    }
+    & > input[type=range]{
+        cursor: pointer;
+        position: relative;
+        top: -5.5px;
+        -webkit-appearance: none;
+        height: 5px;
+        width: 150px;
+        border-radius: 5px;
+        background: linear-gradient(to right,red 0%, red 50%, red 50%, red 100%);
+        &:focus{
+            outline: none;
+        }
+        &::-webkit-slider-thumb{
+            appearance: none;
+            width: 13px;
+            height: 13px;
+            background: red;
+            border-radius: 100%;
+        }
+    }
+}
+
+.slider{
+    @include absolute-position(0%,-18%);
+    width: 100%;
+    cursor: pointer;
+    & > input[type=range]{
+        cursor: pointer;
+        background: linear-gradient(to right, white 0% , white 50% , white 50%, white 100%);
+        position: relative;
+        left: -2px;
+        width: 100%;
+        appearance: none;
+        height: 4px;
+        &:focus{
+            outline: none;
+        }
+        &:hover{
+            height: 7px;
+        }
+
+        &::-webkit-slider-thumb{
+            appearance: none;
+            border-radius: 100%;
+            background: red;
+        }
+        &[data-display=thumb-hover]::-webkit-slider-thumb{
+            height: 13px;
+            width: 13px;
+            position: relative;
+            top: -1px;
+        }
+    }
+
 }
