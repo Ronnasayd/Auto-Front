@@ -61,15 +61,15 @@ $('#slider-input').on('input', (e) => {
 });
 
 $('#slider-input').mousemove((e) => {
-    $('#slider-output').attr('data-display', 'true')
+    $('#slider-output').attr('data-display', 'true');
     let slidertime = moment().startOf('day').seconds((e.offsetX / e.target.offsetWidth) * videoplayer.duration).format('HH:mm:ss');
-    $('#slider-output').val(slidertime)
-    $('#slider-output').css('left', e.offsetX - $('#slider-output')[0].offsetWidth / 2)
-})
+    $('#slider-output').val(slidertime);
+    $('#slider-output').css('left', e.offsetX - $('#slider-output')[0].offsetWidth / 2);
+});
 
 $('#slider-input').mouseout((e) => {
-    $('#slider-output').attr('data-display', 'false')
-})
+    $('#slider-output').attr('data-display', 'false');
+});
 
 
 $('#slider-input').on('change', (e) => {
