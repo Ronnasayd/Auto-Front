@@ -12,7 +12,11 @@ You will need the docker running on your machine. An installation guide can be f
 
 ## Usage
 
-For system use there must be an app folder with an index.html file inside it as shown in the image below. The Static folder and its subdirectories are created automatically.
+For system usage there must be an app folder with an index.html file inside it as shown in the image below. The Static folder and its subdirectories are created automatically.
 
 ![](https://github.com/Ronnasayd/Auto-Front/blob/master/images/tree.png)
+
+Now run the code below and create and edit files as you wish inside the static folder.
+
+`bash run.sh`
 
