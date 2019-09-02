@@ -6,12 +6,13 @@
 
 Front-end task automation system using [gulp](https://gulpjs.com/) and [docker](https://www.docker.com/)
 
-## Table of Contents
+## Installation
 
-## Instalation
+You will need the docker running on your machine. An installation guide can be found on the official [docker](https://docs.docker.com/install/) page.
 
 ## Usage
 
-## Contribution
+For system use there must be an app folder with an index.html file inside it as shown in the image below. The Static folder and its subdirectories are created automatically.
 
-## License
+![](https://github.com/Ronnasayd/Auto-Front/blob/master/images/tree.png)
+
