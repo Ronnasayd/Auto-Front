@@ -18,7 +18,7 @@ For system usage there must be an app folder with an index.html file inside it a
 
 Now run the code below and create and edit files as you wish inside the static folder.
 
-`bash run.sh`
+`docker-compose up`
 
 ## Live
 
