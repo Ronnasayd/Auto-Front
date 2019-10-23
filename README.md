@@ -4,11 +4,14 @@
 
 ## Description
 
-Front-end task automation system using [gulp](https://gulpjs.com/) and [docker](https://www.docker.com/)
+Front-end task automation system using [gulp](https://gulpjs.com/)
 
 ## Installation
 
-You will need the docker running on your machine. An installation guide can be found on the official [docker](https://docs.docker.com/install/) page.
+`npm install gulp-cli -g`
+`npm install -g browser-sync`
+`npm install yarn`
+`yarn install`
 
 ## Usage
 
@@ -18,7 +21,7 @@ For system usage there must be an app folder with an index.html file inside it a
 
 Now run the code below and create and edit files as you wish inside the static folder.
 
-`docker-compose up`
+`gulp`
 
 ## Live
 
