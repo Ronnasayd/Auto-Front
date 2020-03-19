@@ -26,7 +26,11 @@
   },
   "lint-staged": {
     "app/static/src/**/*.js": [
-      "eslint --fix"
+      "eslint --fix",
+      "git add"
+    ],
+    "app/static/src/**/*.[css,scss]": [
+      "stylelint"
     ]
   },
   "dependencies": {},
