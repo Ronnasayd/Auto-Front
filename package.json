@@ -1,7 +1,7 @@
 {
   "name": "autofront",
   "description": "Help in front-end development",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "gulpfile.js",
   "author": "Ronnasayd de Sousa Machado",
   "license": "MIT",
@@ -25,7 +25,9 @@
     }
   },
   "lint-staged": {
-    "*.js": []
+    "app/static/src/**/*.js": [
+      "eslint --fix"
+    ]
   },
   "dependencies": {},
   "devDependencies": {
@@ -35,6 +37,9 @@
     "@commitlint/config-conventional": "^8.3.4",
     "browser-sync": "^2.26.7",
     "commitizen": "^4.0.3",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-babel": "^8.0.0",
