@@ -1,7 +1,7 @@
 {
   "name": "autofront",
   "description": "Help in front-end development",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "gulpfile.js",
   "author": "Ronnasayd de Sousa Machado",
   "license": "MIT",
@@ -14,11 +14,27 @@
   "bugs": {
     "url": "https://github.com/Ronnasayd/Auto-Front/issues"
   },
+  "scripts": {
+    "release": "HUSKY_SKIP_HOOKS=1 standard-version"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.js": []
+  },
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.5.4",
     "@babel/preset-env": "^7.5.4",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "browser-sync": "^2.26.7",
+    "commitizen": "^4.0.3",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-babel": "^8.0.0",
@@ -32,9 +48,12 @@
     "gulp-sass-partials-imported": "^1.0.7",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
+    "husky": "^4.2.3",
     "jshint": "^2.10.2",
+    "lint-staged": "^10.0.8",
     "minimist": "^1.2.0",
     "node-sass": "^4.12.0",
+    "standard-version": "^7.1.0",
     "webpack-stream": "^5.2.1"
   },
   "browserslist": [
@@ -42,5 +61,10 @@
     "> 1%",
     "maintained node versions",
     "not dead"
-  ]
+  ],
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
