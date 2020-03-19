@@ -1,21 +1,24 @@
 $primary-color: #7159c1;
 
 * {
-  margin: 0;
-  padding: 0;
-  outline: 0;
   box-sizing: border-box;
+  margin: 0;
+  outline: 0;
+  padding: 0;
 }
+
 @keyframes trans {
   0% {
-    transform: translateY(100%) rotate(0deg);
     opacity: 1;
+    transform: translateY(100%) rotate(0deg);
   }
+
   100% {
-    transform: translateY(-1500%) rotate(360deg);
     opacity: 0;
+    transform: translateY(-1500%) rotate(360deg);
   }
 }
+
 body {
   overflow: hidden;
 }
@@ -31,7 +34,7 @@ div.container {
     @keyframes comming {
       0% {
         opacity: 0;
-        transform: translatey(-200%);
+        transform: translateY(-200%);
       }
       100% {
         opacity: 1;
