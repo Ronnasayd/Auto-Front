@@ -33,9 +33,6 @@
     ],
     "app/src/**/*.css": [
       "stylelint --fix"
-    ],
-    "app/assets/css/!(*min.css)": [
-      "stylelint --fix"
     ]
   },
   "dependencies": {},
