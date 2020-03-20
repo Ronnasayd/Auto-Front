@@ -25,13 +25,16 @@
     }
   },
   "lint-staged": {
-    "app/static/src/**/*.js": [
+    "app/src/**/*.js": [
       "eslint --fix"
     ],
-    "app/static/src/**/*.scss": [
+    "app/src/**/*.scss": [
       "stylelint --fix"
     ],
-    "app/static/src/**/*.css": [
+    "app/src/**/*.css": [
+      "stylelint --fix"
+    ],
+    "app/assets/css/!(*min.css)": [
       "stylelint --fix"
     ]
   },

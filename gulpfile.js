@@ -16,39 +16,14 @@ const babel = require("gulp-babel");
 const webpack = require("webpack-stream");
 const path = require("path");
 
-const src_scss = path.resolve(
-  __dirname,
-  "app",
-  "static",
-  "src",
-  "scss",
-  "**",
-  "*.scss"
-);
-const src_css = path.resolve(
-  __dirname,
-  "app",
-  "static",
-  "src",
-  "css",
-  "**",
-  "*.css"
-);
-
-const src_js = path.resolve(
-  __dirname,
-  "app",
-  "static",
-  "src",
-  "js",
-  "**",
-  "*.js"
-);
+const src_scss = path.resolve(__dirname, "app", "src", "scss", "**", "*.scss");
+const src_css = path.resolve(__dirname, "app", "src", "css", "**", "*.css");
+const src_js = path.resolve(__dirname, "app", "src", "js", "**", "*.js");
 
 const images_folder = path.resolve(
   __dirname,
   "app",
-  "static",
+  "assets",
   "images",
   "**",
   "*.{png,jpeg,jpg,svg,ico}"
@@ -56,8 +31,8 @@ const images_folder = path.resolve(
 
 const not_node = "!node_modules/";
 
-const dist_js = path.resolve(__dirname, "app", "static", "dist", "js");
-const dist_css = path.resolve(__dirname, "app", "static", "dist", "css");
+const dist_js = path.resolve(__dirname, "app", "assets", "js");
+const dist_css = path.resolve(__dirname, "app", "assets", "css");
 
 const html_files = path.resolve(__dirname, "app", "**", "*.html");
 
@@ -133,7 +108,7 @@ const sassToCssMin = () => {
   return gulp
     .src([src_scss, "!_*.scss", not_node], { allowEmpty: true })
     .pipe(cache("sassToCssMin"))
-    .pipe(sassPartials(path.resolve(__dirname, "app", "static", "src", "scss")))
+    .pipe(sassPartials(path.resolve(__dirname, "app", "src", "scss")))
     .pipe(sourcemaps.init({ loadMaps: true, largeFile: true }))
     .pipe(
       sass({
@@ -151,6 +126,7 @@ const sassToCssMin = () => {
       browserSync.notify(err.message, 3000); // Display error in the browser
       this.emit("end"); // Prevent gulp from catching the error and exiting the watch process
     })
+    .pipe(gulp.dest(dist_css))
     .pipe(cleanCSS())
     .pipe(
       rename(function(file) {
@@ -169,7 +145,6 @@ const minifyCss = () => {
     .pipe(sourcemaps.init({ loadMaps: true, largeFile: true }))
     .pipe(autoprefixer())
     .on("error", function(err) {
-      console.log(err.message, err);
       browserSync.notify(err.message, 3000); // Display error in the browser
       this.emit("end"); // Prevent gulp from catching the error and exiting the watch process
     })

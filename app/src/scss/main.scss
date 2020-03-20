@@ -7,6 +7,10 @@ $primary-color: #7159c1;
   padding: 0;
 }
 
+html {
+  font-size: 10px;
+}
+
 @keyframes trans {
   0% {
     opacity: 1;
@@ -61,6 +65,10 @@ div.container {
       color: #777;
       font-weight: bold;
       margin-bottom: 20px;
+
+      h2 {
+        font-size: 2.4rem;
+      }
     }
 
     form {
@@ -92,6 +100,7 @@ div.container {
         border: 0;
         color: #fff;
         font-weight: bold;
+        font-size: 1.4rem;
         height: 40px;
         width: 80px;
 
@@ -100,5 +109,11 @@ div.container {
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 8px;
   }
 }
