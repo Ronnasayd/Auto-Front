@@ -1,7 +1,7 @@
 {
   "name": "autofront",
   "description": "Help in front-end development",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "gulpfile.js",
   "author": "Ronnasayd de Sousa Machado",
   "license": "MIT",
