@@ -24,7 +24,7 @@ const images_folder = path.resolve(
   __dirname,
   "app",
   "assets",
-  "images",
+  "img",
   "**",
   "*.{png,jpeg,jpg,svg,ico}"
 );
@@ -84,10 +84,10 @@ const webPackJs = () => {
         presets: ["@babel/env"]
       })
     )
+    .pipe(gulp.dest(dist_js))
     .pipe(
       rename(function(file) {
         basename = file.basename;
-        console.log(basename);
       })
     )
     .pipe(
