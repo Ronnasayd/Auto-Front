@@ -1,85 +1,66 @@
 * {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   outline: 0;
-  padding: 0;
-}
+  padding: 0; }
 
 html {
-  font-size: 10px;
-}
+  font-size: 10px; }
 
 @-webkit-keyframes trans {
   0% {
     opacity: 1;
     -webkit-transform: translateY(100%) rotate(0deg);
-    transform: translateY(100%) rotate(0deg);
-  }
-
+            transform: translateY(100%) rotate(0deg); }
   100% {
     opacity: 0;
     -webkit-transform: translateY(-1500%) rotate(360deg);
-    transform: translateY(-1500%) rotate(360deg);
-  }
-}
+            transform: translateY(-1500%) rotate(360deg); } }
 
 @-moz-keyframes trans {
   0% {
     opacity: 1;
     -moz-transform: translateY(100%) rotate(0deg);
-    transform: translateY(100%) rotate(0deg);
-  }
-
+         transform: translateY(100%) rotate(0deg); }
   100% {
     opacity: 0;
     -moz-transform: translateY(-1500%) rotate(360deg);
-    transform: translateY(-1500%) rotate(360deg);
-  }
-}
+         transform: translateY(-1500%) rotate(360deg); } }
 
 @-o-keyframes trans {
   0% {
     opacity: 1;
     -o-transform: translateY(100%) rotate(0deg);
-    transform: translateY(100%) rotate(0deg);
-  }
-
+       transform: translateY(100%) rotate(0deg); }
   100% {
     opacity: 0;
     -o-transform: translateY(-1500%) rotate(360deg);
-    transform: translateY(-1500%) rotate(360deg);
-  }
-}
+       transform: translateY(-1500%) rotate(360deg); } }
 
 @keyframes trans {
   0% {
     opacity: 1;
     -webkit-transform: translateY(100%) rotate(0deg);
-    -moz-transform: translateY(100%) rotate(0deg);
-    -o-transform: translateY(100%) rotate(0deg);
-    transform: translateY(100%) rotate(0deg);
-  }
-
+       -moz-transform: translateY(100%) rotate(0deg);
+         -o-transform: translateY(100%) rotate(0deg);
+            transform: translateY(100%) rotate(0deg); }
   100% {
     opacity: 0;
     -webkit-transform: translateY(-1500%) rotate(360deg);
-    -moz-transform: translateY(-1500%) rotate(360deg);
-    -o-transform: translateY(-1500%) rotate(360deg);
-    transform: translateY(-1500%) rotate(360deg);
-  }
-}
+       -moz-transform: translateY(-1500%) rotate(360deg);
+         -o-transform: translateY(-1500%) rotate(360deg);
+            transform: translateY(-1500%) rotate(360deg); } }
 
 body {
-  overflow: hidden;
-}
+  overflow: hidden; }
 
 div.container {
   -webkit-box-align: center;
   -webkit-align-items: center;
-  -moz-box-align: center;
-  align-items: center;
+     -moz-box-align: center;
+          align-items: center;
   background: #7159c1;
   display: -webkit-box;
   display: -webkit-flex;
@@ -89,28 +70,25 @@ div.container {
   height: 100vh;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-  -moz-box-pack: center;
-  justify-content: center;
-}
+     -moz-box-pack: center;
+          justify-content: center; }
 
 div.card {
   -webkit-box-align: center;
   -webkit-align-items: center;
-  -moz-box-align: center;
-  align-items: center;
+     -moz-box-align: center;
+          align-items: center;
   -webkit-animation: comming ease-in-out 1s;
-  -moz-animation: comming ease-in-out 1s;
-  -o-animation: comming ease-in-out 1s;
-  animation: comming ease-in-out 1s;
+     -moz-animation: comming ease-in-out 1s;
+       -o-animation: comming ease-in-out 1s;
+          animation: comming ease-in-out 1s;
   background: #fff;
   -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-    0 10px 10px rgba(0, 0, 0, 0.22);
-  -moz-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-    0 10px 10px rgba(0, 0, 0, 0.22);
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+     -moz-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -118,166 +96,121 @@ div.card {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
-  -moz-box-orient: vertical;
-  -moz-box-direction: normal;
-  flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+          flex-direction: column;
   -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
+          flex-wrap: wrap;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
-  -moz-box-pack: center;
-  justify-content: center;
+     -moz-box-pack: center;
+          justify-content: center;
   overflow: hidden;
   padding: 20px 40px;
-  z-index: 1000;
-}
+  z-index: 1000; }
 
 @-webkit-keyframes comming {
   0% {
     opacity: 0;
     -webkit-transform: translateY(-200%);
-    transform: translateY(-200%);
-  }
-
+            transform: translateY(-200%); }
   100% {
     opacity: 1;
     -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-}
+            transform: translateX(0); } }
 
 @-moz-keyframes comming {
   0% {
     opacity: 0;
     -moz-transform: translateY(-200%);
-    transform: translateY(-200%);
-  }
-
+         transform: translateY(-200%); }
   100% {
     opacity: 1;
     -moz-transform: translateX(0);
-    transform: translateX(0);
-  }
-}
+         transform: translateX(0); } }
 
 @-o-keyframes comming {
   0% {
     opacity: 0;
     -o-transform: translateY(-200%);
-    transform: translateY(-200%);
-  }
-
+       transform: translateY(-200%); }
   100% {
     opacity: 1;
     -o-transform: translateX(0);
-    transform: translateX(0);
-  }
-}
+       transform: translateX(0); } }
 
 @keyframes comming {
   0% {
     opacity: 0;
     -webkit-transform: translateY(-200%);
-    -moz-transform: translateY(-200%);
-    -o-transform: translateY(-200%);
-    transform: translateY(-200%);
-  }
-
+       -moz-transform: translateY(-200%);
+         -o-transform: translateY(-200%);
+            transform: translateY(-200%); }
   100% {
     opacity: 1;
     -webkit-transform: translateX(0);
-    -moz-transform: translateX(0);
-    -o-transform: translateX(0);
-    transform: translateX(0);
-  }
-}
-
-div.card header {
-  color: #777;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-div.card header h2 {
-  font-size: 2.4rem;
-}
-
-div.card form {
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -moz-box-align: center;
-  align-items: center;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-box-orient: vertical;
-  -moz-box-direction: normal;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -moz-box-pack: center;
-  justify-content: center;
-  width: 100%;
-}
-
-div.card form label {
-  width: 100%;
-}
-
-div.card form label input {
-  border: 0.5px solid rgba(0, 0, 0, 0.2);
-  color: #777;
-  height: 40px;
-  padding-left: 10px;
-  width: 100%;
-}
-
-div.card form label input::-webkit-input-placeholder {
-  color: #999;
-}
-
-div.card form label input:-moz-placeholder {
-  color: #999;
-}
-
-div.card form label input::-moz-placeholder {
-  color: #999;
-}
-
-div.card form label input:-ms-input-placeholder {
-  color: #999;
-}
-
-div.card form label input::-ms-input-placeholder {
-  color: #999;
-}
-
-div.card form label input::placeholder {
-  color: #999;
-}
-
-div.card form button {
-  -webkit-align-self: flex-end;
-  align-self: flex-end;
-  background: #7159c1;
-  border: 0;
-  color: #fff;
-  font-weight: bold;
-  font-size: 1.4rem;
-  height: 40px;
-  width: 80px;
-}
-
-div.card form button:hover {
-  background: #58449b;
-}
+       -moz-transform: translateX(0);
+         -o-transform: translateX(0);
+            transform: translateX(0); } }
+  div.card header {
+    color: #777;
+    font-weight: bold;
+    margin-bottom: 20px; }
+    div.card header h2 {
+      font-size: 2.4rem; }
+  div.card form {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+            align-items: center;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+       -moz-box-pack: center;
+            justify-content: center;
+    width: 100%; }
+    div.card form label {
+      width: 100%; }
+      div.card form label input {
+        border: 0.5px solid rgba(0, 0, 0, 0.2);
+        color: #777;
+        height: 40px;
+        padding-left: 10px;
+        width: 100%; }
+        div.card form label input::-webkit-input-placeholder {
+          color: #999; }
+        div.card form label input:-moz-placeholder {
+          color: #999; }
+        div.card form label input::-moz-placeholder {
+          color: #999; }
+        div.card form label input:-ms-input-placeholder {
+          color: #999; }
+        div.card form label input::-ms-input-placeholder {
+          color: #999; }
+        div.card form label input::placeholder {
+          color: #999; }
+    div.card form button {
+      -webkit-align-self: flex-end;
+              align-self: flex-end;
+      background: #7159c1;
+      border: 0;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1.4rem;
+      height: 40px;
+      width: 80px; }
+      div.card form button:hover {
+        background: #58449b; }
 
 @media screen and (max-width: 320px) {
   html {
-    font-size: 8px;
-  }
-}
+    font-size: 8px; } }
