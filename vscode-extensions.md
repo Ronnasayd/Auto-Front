@@ -22,4 +22,5 @@ ext install xabikos.javascriptsnippets # javascript es6 snippets
 ext install steoates.autoimport # auto import
 ext install ms-vsliveshare.vsliveshare # live share
 ext install mikestead.dotenv # dont env
+ext install christian-kohler.path-intellisense # path intellisense
 ```
