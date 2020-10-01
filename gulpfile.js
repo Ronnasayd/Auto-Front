@@ -1,235 +1,197 @@
 const gulp = require("gulp");
-const browserSync = require("browser-sync").create();
 const sass = require("gulp-sass");
 const rename = require("gulp-rename");
 const autoprefixer = require("gulp-autoprefixer");
 const minifyjs = require("gulp-uglify");
 const sourcemaps = require("gulp-sourcemaps");
-const imagemin = require("gulp-imagemin");
 const cleanCSS = require("gulp-clean-css");
 const cache = require("gulp-cached");
-const minimist = require("minimist");
-const concat = require("gulp-concat");
 const sassPartials = require("gulp-sass-partials-imported");
-const jshint = require("gulp-jshint");
 const babel = require("gulp-babel");
 const webpack = require("webpack-stream");
 const path = require("path");
+const eslint = require("gulp-eslint");
+const webp = require("gulp-webp");
 
-const src_scss = path.resolve(__dirname, "app", "src", "scss", "**", "*.scss");
-const src_css = path.resolve(__dirname, "app", "src", "css", "**", "*.css");
-const src_js = path.resolve(__dirname, "app", "src", "js", "**", "*.js");
+class GulpBase {
+  // eslint-disable-next-line no-undef
+  constructor(rootDirectory = path.resolve(__dirname, "app")) {
+    this.rootDirectory = rootDirectory;
 
-const images_folder = path.resolve(
-  __dirname,
-  "app",
-  "assets",
-  "img",
-  "**",
-  "*.{png,jpeg,jpg,svg,ico}"
-);
+    this.sourceScssPath = path.resolve(this.rootDirectory, "src", "scss");
+    this.sourceScssFiles = path.resolve(this.sourceScssPath, "**", "*.scss");
 
-const not_node = "!node_modules/";
+    this.sourceCssPath = path.resolve(this.rootDirectory, "src", "css");
+    this.sourceCssFiles = path.resolve(this.sourceCssPath, "**", "*.css");
 
-const dist_js = path.resolve(__dirname, "app", "assets", "js");
-const dist_css = path.resolve(__dirname, "app", "assets", "css");
+    this.sourceImagesPath = path.resolve(this.rootDirectory, "src", "images");
+    this.sourceImagesFiles = path.resolve(
+      this.sourceImagesPath,
+      "**",
+      "*.{png,jpeg,jpg,tiff,webp}"
+    );
 
-const html_files = path.resolve(__dirname, "app", "**", "*.html");
+    this.sourceJavascriptPath = path.resolve(this.rootDirectory, "src", "js");
+    this.sourceJavascriptFiles = path.resolve(
+      this.sourceJavascriptPath,
+      "**",
+      "*.js"
+    );
 
-const jsHint = () => {
-  return gulp
-    .src([src_js, not_node], { allowEmpty: true })
-    .pipe(cache("jsHint"))
-    .pipe(
-      jshint({
-        esnext: true
+    this.nonIncludeNodeModules = "!node_modules/";
+
+    this.destinationJavascript = path.resolve(
+      this.rootDirectory,
+      "assets",
+      "js"
+    );
+    this.destinationCss = path.resolve(this.rootDirectory, "assets", "css");
+    this.destinationImages = path.resolve(
+      this.rootDirectory,
+      "assets",
+      "images"
+    );
+
+    this.handleBuildAssembly();
+  }
+
+  handleBuildAssembly() {
+    this.javascriptAssembly = gulp.series(this.handleWebPackJs.bind(this));
+    this.sassAssembly = gulp.series(this.handleSassToCssMinify.bind(this));
+    this.cssAssembly = gulp.series(this.handleMinifyCss.bind(this));
+    this.imagesAssembly = gulp.series(this.handleMinifyImages.bind(this));
+  }
+
+  handleMinifyImages() {
+    return gulp
+      .src([this.sourceImagesFiles, this.nonIncludeNodeModules], {
+        allowEmpty: true,
       })
-    )
-    .pipe(jshint.reporter("default"));
-};
+      .pipe(cache("handleMinifyImages"))
+      .pipe(webp())
+      .pipe(gulp.dest(this.destinationImages));
+  }
 
-const minifyJs = () => {
-  return gulp
-    .src([src_js, not_node], { allowEmpty: true })
-    .pipe(cache("minifyJs"))
-    .pipe(sourcemaps.init())
-    .pipe(
-      babel({
-        presets: ["@babel/env"]
+  handleMinifyJs() {
+    return gulp
+      .src([this.sourceJavascriptFiles, this.nonIncludeNodeModules], {
+        allowEmpty: true,
       })
-    )
-    .pipe(minifyjs())
-    .on("error", function(err) {
-      console.log(err.message);
-      console.log(err.cause);
-      browserSync.notify(err.message, 3000); // Display error in the browser
-      this.emit("end"); // Prevent gulp from catching the error and exiting the watch process
-    })
-    .pipe(
-      rename(function(file) {
-        file.extname = ".min.js";
-      })
-    )
-    .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest(dist_js));
-};
-
-const webPackJs = () => {
-  let basename;
-  return gulp
-    .src([src_js, not_node], { allowEmpty: true })
-    .pipe(cache("webpackJs"))
-    .pipe(
-      babel({
-        presets: ["@babel/env"]
-      })
-    )
-    .pipe(gulp.dest(dist_js))
-    .pipe(
-      rename(function(file) {
-        basename = file.basename;
-      })
-    )
-    .pipe(
-      webpack({
-        mode: "production",
-        devtool: "source-map",
-        output: {
-          filename: () => {
-            return basename + ".min.js";
-          }
-        }
-      })
-    )
-    .pipe(gulp.dest(dist_js));
-};
-
-const sassToCssMin = () => {
-  return gulp
-    .src([src_scss, "!_*.scss", not_node], { allowEmpty: true })
-    .pipe(cache("sassToCssMin"))
-    .pipe(sassPartials(path.resolve(__dirname, "app", "src", "scss")))
-    .pipe(sourcemaps.init({ loadMaps: true, largeFile: true }))
-    .pipe(
-      sass({
-        errLogToConsole: true,
-        indentedSyntax: false
-      }).on("error", function(err) {
-        console.log(err.message);
-        browserSync.notify(err.message, 3000); // Display error in the browser
-        this.emit("end"); // Prevent gulp from catching the error and exiting the watch process
-      })
-    )
-    .pipe(autoprefixer())
-    .on("error", function(err) {
-      console.log(err.message, err);
-      browserSync.notify(err.message, 3000); // Display error in the browser
-      this.emit("end"); // Prevent gulp from catching the error and exiting the watch process
-    })
-    .pipe(gulp.dest(dist_css))
-    .pipe(cleanCSS())
-    .pipe(
-      rename(function(file) {
-        file.extname = ".min.css";
-      })
-    )
-    .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest(dist_css))
-    .pipe(browserSync.stream());
-};
-
-const minifyCss = () => {
-  return gulp
-    .src([src_css, "!_*.css", not_node], { allowEmpty: true })
-    .pipe(cache("minifyCss"))
-    .pipe(sourcemaps.init({ loadMaps: true, largeFile: true }))
-    .pipe(autoprefixer())
-    .on("error", function(err) {
-      browserSync.notify(err.message, 3000); // Display error in the browser
-      this.emit("end"); // Prevent gulp from catching the error and exiting the watch process
-    })
-    .pipe(cleanCSS())
-    .pipe(
-      rename(function(file) {
-        file.extname = ".min.css";
-      })
-    )
-    .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest(dist_css))
-    .pipe(browserSync.stream());
-};
-
-//  gulp concatfiles --files <list_of_files:file1,file2,file3> --name <name_of_file:all.js> --dist <destination>
-const concatFiles = () => {
-  let options = minimist(process.argv.slice(2));
-  console.log("files: " + options.files);
-  console.log("name: " + options.name);
-  console.log("dist: " + options.dist);
-  return gulp
-    .src(options.files.split(","), { base: "./", allowEmpty: true })
-    .pipe(cache("concatFiles"))
-    .pipe(sourcemaps.init())
-    .pipe(concat(options.name))
-    .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest(options.dist));
-};
-
-const browserReload = done => {
-  browserSync.reload();
-  done();
-};
-
-const minifyImages = () => {
-  return gulp
-    .src([images_folder, not_node], { base: "./", allowEmpty: true })
-    .pipe(cache("minifyImages"))
-    .pipe(
-      imagemin([
-        imagemin.gifsicle({ interlaced: true }),
-        imagemin.jpegtran({ progressive: true }),
-        imagemin.optipng({ optimizationLevel: 5 }),
-        imagemin.svgo({
-          plugins: [{ removeViewBox: true }, { cleanupIDs: false }]
+      .pipe(cache("handleMinifyJs"))
+      .pipe(eslint({ fix: true }))
+      .pipe(eslint.format())
+      .pipe(eslint.failAfterError())
+      .pipe(sourcemaps.init())
+      .pipe(
+        babel({
+          presets: ["@babel/env"],
         })
-      ])
-    )
-    .pipe(gulp.dest("./"));
-};
+      )
+      .pipe(minifyjs())
+      .pipe(
+        rename(function (file) {
+          file.extname = ".min.js";
+        })
+      )
+      .pipe(sourcemaps.write("./"))
+      .pipe(gulp.dest(this.destinationJavascript));
+  }
 
-// const js_line = gulp.series(jsHint, minifyJs); // Use this line if you want minify the javascript
-const js_line = gulp.series(jsHint, webPackJs); // Use this line if  you want webpack javascript
+  handleWebPackJs() {
+    let basename;
+    return gulp
+      .src([this.sourceJavascriptFiles, this.nonIncludeNodeModules], {
+        allowEmpty: true,
+      })
+      .pipe(cache("handleWebpackJs"))
+      .pipe(eslint({ fix: true }))
+      .pipe(eslint.format())
+      .pipe(eslint.failAfterError())
+      .pipe(sourcemaps.init())
+      .pipe(
+        babel({
+          presets: ["@babel/env"],
+        })
+      )
+      .pipe(
+        rename(function (file) {
+          basename = file.basename;
+        })
+      )
+      .pipe(
+        webpack({
+          mode: "production",
+          devtool: "source-map",
+          output: {
+            filename: () => {
+              return basename + ".min.js";
+            },
+          },
+        })
+      )
+      .pipe(sourcemaps.write("./"))
+      .pipe(gulp.dest(this.destinationJavascript));
+  }
 
-const sass_line = gulp.series(sassToCssMin);
-const css_line = gulp.series(minifyCss);
-const image_line = gulp.series(minifyImages);
+  handleSassToCssMinify() {
+    return gulp
+      .src([this.sourceScssFiles, this.nonIncludeNodeModules], {
+        allowEmpty: true,
+      })
+      .pipe(cache("handleSassToCssMinify"))
+      .pipe(sassPartials(this.sourceScssPath))
+      .pipe(sourcemaps.init({ loadMaps: true, largeFile: true }))
+      .pipe(
+        sass({
+          errLogToConsole: true,
+          indentedSyntax: false,
+        })
+      )
+      .pipe(autoprefixer())
+      .pipe(cleanCSS())
+      .pipe(
+        rename(function (file) {
+          file.extname = ".min.css";
+        })
+      )
+      .pipe(sourcemaps.write("./"))
+      .pipe(gulp.dest(this.destinationCss));
+  }
 
-const browserSyncServer = () => {
-  browserSync.init({
-    open: false,
-    server: {
-      baseDir: path.resolve(__dirname, "app")
-    }
-  });
+  handleMinifyCss() {
+    return gulp
+      .src([this.sourceCssFiles, this.nonIncludeNodeModules], {
+        allowEmpty: true,
+      })
+      .pipe(cache("handleMinifyCss"))
+      .pipe(sourcemaps.init({ loadMaps: true, largeFile: true }))
+      .pipe(autoprefixer())
+      .pipe(cleanCSS())
+      .pipe(
+        rename(function (file) {
+          file.extname = ".min.css";
+        })
+      )
+      .pipe(sourcemaps.write("./"))
+      .pipe(gulp.dest(this.destinationCss));
+  }
 
-  gulp.watch(src_scss, { interval: 100, usePolling: true }, sass_line);
-  gulp.watch(src_css, { interval: 100, usePolling: true }, css_line);
-  gulp.watch(
-    src_js,
-    { interval: 100, usePolling: true },
-    gulp.series(js_line, browserReload)
-  );
-  gulp.watch(images_folder, { interval: 100, usePolling: true }, image_line);
-  gulp.watch(
-    html_files,
-    { interval: 100, usePolling: true },
-    gulp.series(browserReload)
-  );
-};
+  run() {
+    gulp.watch(this.sourceScssFiles, this.sassAssembly);
+    gulp.watch(this.sourceCssFiles, this.cssAssembly);
+    gulp.watch(this.sourceJavascriptFiles, this.javascriptAssembly);
+    gulp.watch(this.sourceImagesFiles, this.imagesAssembly);
 
-const server = gulp.series(
-  gulp.parallel(js_line, css_line, sass_line, image_line),
-  browserSyncServer
-);
+    this.default = gulp.parallel(
+      this.javascriptAssembly,
+      this.cssAssembly,
+      this.sassAssembly,
+      this.imagesAssembly
+    );
+  }
+}
 
-exports.concatfiles = concatFiles;
-exports.default = server;
+const gulpBase = new GulpBase();
+gulpBase.run();
+
+exports.default = gulpBase.default;
