@@ -35,7 +35,7 @@ git clone https://github.com/Ronnasayd/Auto-Front.git
 cd Auto-Front
 
 # Create application folder
-mkdir -p app/src
+mkdir -p app/src/css app/src/scss app/src/js app/src/images
 
 # Install dependencies
 yarn
