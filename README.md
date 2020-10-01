@@ -58,7 +58,7 @@ The following tools were used in the construction of the project:
 <img src="https://img.shields.io/badge/license-mit-green?style=flat-square">
 </a>
 
-### Example Live
+### Live
 
 https://ronnasayd.github.io/Auto-Front/
 
