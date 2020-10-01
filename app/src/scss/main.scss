@@ -1,16 +1,5 @@
 $primary-color: #7159c1;
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  outline: 0;
-  padding: 0;
-}
-
-html {
-  font-size: 10px;
-}
-
 @keyframes trans {
   0% {
     opacity: 1;
@@ -21,10 +10,6 @@ html {
     opacity: 0;
     transform: translateY(-1500%) rotate(360deg);
   }
-}
-
-body {
-  overflow: hidden;
 }
 
 div.container {
@@ -96,14 +81,14 @@ div.card {
     }
 
     button {
-      align-self: flex-end;
+      cursor: pointer;
       background: $primary-color;
       border: 0;
       color: #fff;
       font-weight: bold;
       font-size: 1.4rem;
       height: 40px;
-      width: 80px;
+      width: 100%;
 
       &:hover {
         background: #58449b;

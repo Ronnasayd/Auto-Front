@@ -1,5 +1,5 @@
 const form = document.getElementById("form-subscribe");
-form.onsubmit = e => {
+form.onsubmit = (e) => {
   e.preventDefault();
 };
 // teste
