@@ -1,20 +1,25 @@
-const form = document.getElementById("form-subscribe");
-form.onsubmit = (e) => {
-  e.preventDefault();
+const universe = document.querySelector(".universe");
+const random = (value) => {
+  return Math.random() * value;
 };
-// teste
-for (let i = 0; i < 100; i++) {
-  var element = document.createElement("div");
-  var elementSize = `${Math.max(20, Math.random() * 50)}px`;
-  element.style.width = elementSize;
-  element.style.height = elementSize;
-  element.style.background = "rgba(255,255,255,0.3)";
-  element.style.position = "absolute";
-  element.style.bottom = "0px";
-  element.style.left = `${(i / 100) * 100}%`;
-  element.style.animation = `trans ${Math.max(
-    2,
-    Math.random() * 8
-  )}s ease-out infinite`;
-  document.body.appendChild(element);
+class Star {
+  constructor(positionX = random(130), positionY = random(130)) {
+    this.positionX = positionX;
+    this.positionY = positionY;
+    this.element = document.createElement("div");
+    this.element.style.left = `${this.positionX}%`;
+    this.element.style.top = `${this.positionY}%`;
+    this.element.style.height = `${Math.max(1, random(3))}px`;
+    this.element.style.animation = `tail ${Math.max(
+      2,
+      random(6)
+    )}s ease-in-out infinite`;
+    this.element.style.animationDelay = `${random(8)}s`;
+    this.element.classList.add("star");
+  }
+}
+// eslint-disable-next-line no-unused-vars
+for (let i of Array(150).keys()) {
+  const st = new Star();
+  universe.appendChild(st.element);
 }
