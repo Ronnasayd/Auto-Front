@@ -6,7 +6,7 @@ $whiteColor: white;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-image: url("./assets/images/sky.webp");
+  background-image: url("/assets/images/sky.webp");
   background-position: center;
   background-size: cover;
 
@@ -41,7 +41,7 @@ $whiteColor: white;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("./assets/images/mountains.webp");
+    background-image: url("/assets/images/mountains.webp");
     background-position: center;
     background-size: cover;
     z-index: 10;
