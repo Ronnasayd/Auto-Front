@@ -1,3 +1,6 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable prefer-const */
+/* eslint-disable no-unused-vars */
 const universe = document.querySelector(".universe");
 const random = (value) => {
   return Math.random() * value;
@@ -19,9 +22,7 @@ class Star {
   }
 }
 
-Array(150)
-  .keys()
-  .forEach(() => {
-    const st = new Star();
-    universe.appendChild(st.element);
-  });
+for (let index of Array(150).keys()) {
+  const st = new Star();
+  universe.appendChild(st.element);
+}
