@@ -1,7 +1,7 @@
 {
   "name": "autofront",
   "description": "Help in front-end development",
-  "version": "1.1.1",
+  "version": "0.0.1",
   "main": "gulpfile.js",
   "author": "Ronnasayd de Sousa Machado",
   "license": "MIT",
@@ -14,7 +14,6 @@
   "bugs": {
     "url": "https://github.com/Ronnasayd/Auto-Front/issues"
   },
-
   "scripts": {
     "release": "HUSKY_SKIP_HOOKS=1 standard-version",
     "commitizen_init": "commitizen init cz-conventional-changelog --yarn --dev --exact --force",
@@ -22,7 +21,6 @@
     "prepublish": "npm run snyk-protect"
   },
   "snyk": true,
-
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
@@ -50,8 +48,11 @@
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "3.3.0",
     "devmoji": "^2.1.9",
-    "eslint": "^6.8.0",
-    "eslint-plugin-import": "^2.20.1",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-babel": "^8.0.0",
@@ -67,11 +68,12 @@
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
     "node-sass": "^4.12.0",
+    "prettier": "^2.1.2",
+    "snyk": "^1.162.0",
     "standard-version": "^8.0.1",
     "stylelint": "^13.2.1",
     "stylelint-config-standard": "^20.0.0",
-    "webpack-stream": "^5.2.1",
-    "snyk": "^1.162.0"
+    "webpack-stream": "^5.2.1"
   },
   "browserslist": [
     "last 100 version",
@@ -85,4 +87,3 @@
     }
   }
 }
-

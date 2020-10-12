@@ -2,26 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.1.1](https://github.com/Ronnasayd/Auto-Front/compare/v1.1.0...v1.1.1) (2020-03-20)
-
-
-### Code Refactoring
-
-* reafatorando a estrutura do projeto ([8e06c74](https://github.com/Ronnasayd/Auto-Front/commit/8e06c74f1abf34b810099382b4c94d3e1028b27f))
-
-## [1.1.0](https://github.com/Ronnasayd/Auto-Front/compare/v1.0.2...v1.1.0) (2020-03-19)
-
-
-### Features
-
-* ajustando erros ([3f4f427](https://github.com/Ronnasayd/Auto-Front/commit/3f4f4272718c8d37e6967d52cc9e096aa7829210))
+### [0.0.1](https://github.com/Ronnasayd/Auto-Front/compare/v1.1.1...v0.0.1) (2020-10-12)
 
 
 ### Bug Fixes
 
-* removendo packages inutilizados ([107a870](https://github.com/Ronnasayd/Auto-Front/commit/107a870e7bb89de1fabfc93c5fbb57bcccae9c8a))
-
-
-### Code Refactoring
-
-* add stylelint lint-staged ([04e5dad](https://github.com/Ronnasayd/Auto-Front/commit/04e5dadc9274ff1949b19d41b68d8b3083bca023))
+* .snyk & package.json to reduce vulnerabilities ([b02bcef](https://github.com/Ronnasayd/Auto-Front/commit/b02bcef511fb4d895b9aaeef987f915627c2d05b))
+* 🐛 fixing assets ([2a91662](https://github.com/Ronnasayd/Auto-Front/commit/2a916627314ac057caa0f30c381e37020e3b0210))
+* 🐛 fixing broken images ([50d8c68](https://github.com/Ronnasayd/Auto-Front/commit/50d8c6895d8ce503fd516b37d355379710d65556))
+* 🐛 fixing broken images ([fdf09fe](https://github.com/Ronnasayd/Auto-Front/commit/fdf09fee41b25541a677ed8213ada6cbf539a0f9))
+* 🐛 fixing homepage ([2cf35d8](https://github.com/Ronnasayd/Auto-Front/commit/2cf35d8db2315c6ce89a8bab823495fe7632575f))
+* 🐛 fixing relative paths ([6fcdd42](https://github.com/Ronnasayd/Auto-Front/commit/6fcdd421a19ef8f27c17d5aadc1467c04ca6a533))
