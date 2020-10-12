@@ -14,6 +14,7 @@
   <a href="https://www.codacy.com/gh/Ronnasayd/Auto-Front/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Ronnasayd/Auto-Front&amp;utm_campaign=Badge_Grade">
   <img alt="Github Codacy" src="https://app.codacy.com/project/badge/Grade/1d81b268dcfd441b9f94af599e55c4c7">
   </a>
+  <a href="https://snyk.io/test/github/Ronnasayd/Auto-Front?targetFile=package.json"><img src="https://snyk.io/test/github/Ronnasayd/Auto-Front/badge.svg?targetFile=package.json" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/Ronnasayd/Auto-Front?targetFile=package.json" style="max-width:100%;"></a>
 </p>
 
 ### 🛠️ Features
