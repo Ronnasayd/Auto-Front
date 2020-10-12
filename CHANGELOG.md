@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.2](https://github.com/Ronnasayd/Auto-Front/compare/v0.0.1...v0.0.2) (2020-10-12)
+
+
+### Features
+
+* ✨ add prettier ([ad3b758](https://github.com/Ronnasayd/Auto-Front/commit/ad3b7582d502d184276fe61ae33d07b3ccbee70c))
+
 ### [0.0.1](https://github.com/Ronnasayd/Auto-Front/compare/v1.1.1...v0.0.1) (2020-10-12)
 
 
