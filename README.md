@@ -56,7 +56,7 @@ The following tools were used in the construction of the project:
 - [Gulp](https://gulpjs.com/)
 - [Webpack](https://webpack.js.org/)
 
-### 📄 License
+### ⚖️ License
 
 <a href="#">
 <img src="https://img.shields.io/badge/license-mit-green?style=flat-square">
