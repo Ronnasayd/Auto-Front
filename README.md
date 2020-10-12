@@ -11,6 +11,9 @@
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Ronnasayd/Auto-Front">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/Ronnasayd/Auto-Front">
   <img alt="GitHub package.json version" src="https://img.shields.io/github/package-json/v/Ronnasayd/Auto-Front">
+  <a href="https://www.codacy.com/gh/Ronnasayd/Auto-Front/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Ronnasayd/Auto-Front&amp;utm_campaign=Badge_Grade">
+  <img alt="Github Codacy" src="https://app.codacy.com/project/badge/Grade/1d81b268dcfd441b9f94af599e55c4c7">
+  </a>
 </p>
 
 ### 🛠️ Features
