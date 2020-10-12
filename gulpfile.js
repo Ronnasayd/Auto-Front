@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const gulp = require("gulp");
 const sass = require("gulp-sass");
 const rename = require("gulp-rename");
@@ -89,7 +90,7 @@ class GulpBase {
       )
       .pipe(minifyjs())
       .pipe(
-        rename(function (file) {
+        rename((file) => {
           file.extname = ".min.js";
         })
       )
@@ -114,7 +115,7 @@ class GulpBase {
         })
       )
       .pipe(
-        rename(function (file) {
+        rename((file) => {
           basename = file.basename;
         })
       )
@@ -124,7 +125,7 @@ class GulpBase {
           devtool: "source-map",
           output: {
             filename: () => {
-              return basename + ".min.js";
+              return `${basename}.min.js`;
             },
           },
         })
@@ -150,7 +151,7 @@ class GulpBase {
       .pipe(autoprefixer())
       .pipe(cleanCSS())
       .pipe(
-        rename(function (file) {
+        rename((file) => {
           file.extname = ".min.css";
         })
       )
@@ -168,7 +169,7 @@ class GulpBase {
       .pipe(autoprefixer())
       .pipe(cleanCSS())
       .pipe(
-        rename(function (file) {
+        rename((file) => {
           file.extname = ".min.css";
         })
       )

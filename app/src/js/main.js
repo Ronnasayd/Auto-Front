@@ -18,8 +18,10 @@ class Star {
     this.element.classList.add("star");
   }
 }
-// eslint-disable-next-line no-unused-vars
-for (let i of Array(150).keys()) {
-  const st = new Star();
-  universe.appendChild(st.element);
-}
+
+Array(150)
+  .keys()
+  .forEach(() => {
+    const st = new Star();
+    universe.appendChild(st.element);
+  });
