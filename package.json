@@ -14,10 +14,15 @@
   "bugs": {
     "url": "https://github.com/Ronnasayd/Auto-Front/issues"
   },
+
   "scripts": {
     "release": "HUSKY_SKIP_HOOKS=1 standard-version",
-    "commitizen_init": "commitizen init cz-conventional-changelog --yarn --dev --exact --force"
+    "commitizen_init": "commitizen init cz-conventional-changelog --yarn --dev --exact --force",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
+  "snyk": true,
+
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
@@ -65,7 +70,8 @@
     "standard-version": "^8.0.1",
     "stylelint": "^13.2.1",
     "stylelint-config-standard": "^20.0.0",
-    "webpack-stream": "^5.2.1"
+    "webpack-stream": "^5.2.1",
+    "snyk": "^1.162.0"
   },
   "browserslist": [
     "last 100 version",
@@ -79,3 +85,4 @@
     }
   }
 }
+
