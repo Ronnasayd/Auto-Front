@@ -15,6 +15,8 @@
 
 ### 🛠️ Features
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/73a52b88ddf5424fbfd455a79069bab3)](https://app.codacy.com/gh/Ronnasayd/Auto-Front?utm_source=github.com&utm_medium=referral&utm_content=Ronnasayd/Auto-Front&utm_campaign=Badge_Grade)
+
 - [x] Convert sass to css
 - [x] Minify css
 - [x] Minify javascript
