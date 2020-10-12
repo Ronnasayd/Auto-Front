@@ -58,7 +58,7 @@ The following tools were used in the construction of the project:
 
 ### ⚖️ License
 
-<a href="#">
+<a href="https://github.com/Ronnasayd/Auto-Front/blob/master/LICENSE.md">
 <img src="https://img.shields.io/badge/license-mit-green?style=flat-square">
 </a>
 
