@@ -12,5 +12,8 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018,
   },
-  rules: {},
+  plugins: ["prettier"],
+  rules: {
+    "prettier/prettier": "error",
+  },
 };

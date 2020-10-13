@@ -17,12 +17,11 @@ $whiteColor: white;
     width: 100%;
     left: 0;
     top: 0;
-    background:
-      linear-gradient(
-        to top,
-        $auroraColor,
-        rgba(255, 255, 225, 0) 70%
-      );
+    background: linear-gradient(
+      to top,
+      $auroraColor,
+      rgba(255, 255, 225, 0) 70%
+    );
   }
 
   .moon {
