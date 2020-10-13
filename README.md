@@ -31,7 +31,7 @@
   <a href="#-author">Author</a>
 </p>
 
-### ✔️ Features
+## ✔️ Features
 
 - [x] Convert sass to css
 - [x] Minify css
@@ -40,11 +40,11 @@
 - [x] Webpack
 - [x] Add sourcemaps
 
-### 📝 Prerequisites
+## 📝 Prerequisites
 
 Before you begin, you will need to have the following tools installed on your machine: [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). In addition, it is good to have an editor to work with code like [VSCode](https://code.visualstudio.com/)
 
-### 🎲 How to use
+## 🎲 How to use
 
 ```sh
 # Clone this repository
@@ -63,7 +63,7 @@ yarn
 yarn gulp
 ```
 
-### 🛠 Technology
+## 🛠 Technology
 
 The following tools were used in the construction of the project:
 
@@ -72,7 +72,7 @@ The following tools were used in the construction of the project:
 - [Webpack](https://webpack.js.org/)
 
 
-### 🤔 How to contribute
+## 🤔 How to contribute
 
 - Fork this repository;
 - Create a branch with your feature: `git checkout -b my-feature`;
@@ -81,19 +81,17 @@ The following tools were used in the construction of the project:
 
 After the merge of your pull request is done, you can delete your branch.
 
-### ⚖️ License
+## ⚖️ License
 
 <a href="https://github.com/Ronnasayd/Auto-Front/blob/master/LICENSE.md">
 <img src="https://img.shields.io/badge/license-mit-green?style=flat-square">
 </a>
 
-### 🎥 Live Example
+## 🎥 Live Example
 
 https://ronnasayd.github.io/Auto-Front/
 
-### 🎨 Author
-
----
+## 🎨 Author
 
 <a href="https://github.com/Ronnasayd">
 <img style="border-radius: 50%;"src="https://avatars3.githubusercontent.com/u/5097702?s=460&u=bd60ecc1912c698b55aef2118a1cdebe0ae3844b&v=4" width="100px;">
