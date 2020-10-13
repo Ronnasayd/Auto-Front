@@ -26,7 +26,7 @@
   <a href="#-author">Author</a>
 </p>
 
-### 🛠️ Features
+### ✔️ Features
 
 - [x] Convert sass to css
 - [x] Minify css
