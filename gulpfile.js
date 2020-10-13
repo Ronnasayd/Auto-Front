@@ -16,7 +16,7 @@ const webp = require("gulp-webp");
 
 class GulpBase {
   // eslint-disable-next-line no-undef
-  constructor(rootDirectory = path.resolve(__dirname, "app")) {
+  constructor(rootDirectory = path.resolve(__dirname, "example")) {
     this.rootDirectory = rootDirectory;
 
     this.sourceScssPath = path.resolve(this.rootDirectory, "src", "scss");
