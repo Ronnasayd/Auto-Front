@@ -54,7 +54,7 @@ git clone https://github.com/Ronnasayd/Auto-Front.git
 cd Auto-Front
 
 # Create application folder
-mkdir -p app/src/css app/src/scss app/src/js app/src/images
+mkdir -p example/src/css example/src/scss example/src/js example/src/images
 
 # Install dependencies
 yarn
@@ -70,7 +70,6 @@ The following tools were used in the construction of the project:
 - [Node.js](https://nodejs.org/en/)
 - [Gulp](https://gulpjs.com/)
 - [Webpack](https://webpack.js.org/)
-
 
 ## 🤔 How to contribute
 
