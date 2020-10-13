@@ -22,6 +22,7 @@
   <a href="#-prerequisites">Prerequisites</a> • 
   <a href="#-how-to-use">How to Use</a> • 
   <a href="#-technology">Technology</a> • 
+  <a href="#-how-to-contribute">How to Contribute</a> • 
   <a href="#%EF%B8%8F-license">License</a> • 
   <a href="#-author">Author</a>
 </p>
