@@ -17,13 +17,16 @@
   <a href="https://snyk.io/test/github/Ronnasayd/Auto-Front?targetFile=package.json"><img src="https://snyk.io/test/github/Ronnasayd/Auto-Front/badge.svg?targetFile=package.json" alt="Known Vulnerabilities" data-canonical-src="https://snyk.io/test/github/Ronnasayd/Auto-Front?targetFile=package.json" style="max-width:100%;"></a>
 </p>
 
+<p align="center">  <a href="#features">Features</a> • <a href="#prerequisites">Prerequisites</a> • <a href="#how-to-use">How to Use</a> • <a href="#technology">Technology</a> • <a href="#license">License</a> • <a href="#author">Author</a>  </p>
+
 ### 🛠️ Features
 
 - [x] Convert sass to css
 - [x] Minify css
 - [x] Minify javascript
-- [x] Minify images
+- [x] Minify images and Convert to webp
 - [x] Webpack
+- [x] Add sourcemaps
 
 ### 📝 Prerequisites
 
@@ -62,7 +65,7 @@ The following tools were used in the construction of the project:
 <img src="https://img.shields.io/badge/license-mit-green?style=flat-square">
 </a>
 
-### Live
+### 🎥 Live Example
 
 https://ronnasayd.github.io/Auto-Front/
 
