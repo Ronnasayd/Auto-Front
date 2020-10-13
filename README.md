@@ -7,6 +7,10 @@
   <img src="https://requires.io/github/Ronnasayd/Auto-Front/requirements.svg?branch=master">
   </a>
   <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/Ronnasayd/Auto-Front">
+  <img alt="GitHub code size" src="https://img.shields.io/github/languages/code-size/Ronnasayd/Auto-Front">
+  <img alt="Issues" src="https://img.shields.io/github/issues/Ronnasayd/Auto-Front">
+  <img alt="Forks" src="https://img.shields.io/github/forks/Ronnasayd/Auto-Front">
+  <img alt="Stars" src="https://img.shields.io/github/stars/Ronnasayd/Auto-Front">
   <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Ronnasayd/Auto-Front">
   <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/Ronnasayd/Auto-Front">
   <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/Ronnasayd/Auto-Front">
