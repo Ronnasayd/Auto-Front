@@ -96,7 +96,7 @@ https://ronnasayd.github.io/Auto-Front/
 <img style="border-radius: 50%;"src="https://avatars3.githubusercontent.com/u/5097702?s=460&u=bd60ecc1912c698b55aef2118a1cdebe0ae3844b&v=4" width="100">
 </a>
 
-Made with 💜 by [Ronnasayd Machado](ttps://github.com/Ronnasayd) 👋 Get in touch!
+Made with 💜 by [Ronnasayd Machado](https://github.com/Ronnasayd) 👋 Get in touch!
 
 <p>
 	<a href="https://www.facebook.com/ronnasaydmachado/">
