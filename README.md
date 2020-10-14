@@ -110,4 +110,7 @@ Made with 💜 by Ronnasayd Machado 👋 Get in touch!
   <a href="https://www.linkedin.com/in/ronnasayd/">
 	<img src="https://img.shields.io/static/v1?label=&message=Linkedin&color=2867B2&style=flat-square&logo=linkedin&logoColor=white">
 	</a>
+  <a href="maito:ronnasayd@hotmail.com">
+    <img src="https://img.shields.io/static/v1?label=&message=E-mail&color=0060aa&style=flat-square&logo=microsoft%20Outlook&logoColor=white">
+  </a>
 </p>
