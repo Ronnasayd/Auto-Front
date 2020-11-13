@@ -13,6 +13,7 @@ const webpack = require("webpack-stream");
 const path = require("path");
 const eslint = require("gulp-eslint");
 const webp = require("gulp-webp");
+const pug = require("gulp-pug");
 
 class GulpBase {
   // eslint-disable-next-line no-undef
@@ -24,6 +25,17 @@ class GulpBase {
 
     this.sourceCssPath = path.resolve(this.rootDirectory, "src", "css");
     this.sourceCssFiles = path.resolve(this.sourceCssPath, "**", "*.css");
+
+    this.sourceTemplatePath = path.resolve(
+      this.rootDirectory,
+      "src",
+      "templates"
+    );
+    this.sourceTemplateFiles = path.resolve(
+      this.sourceTemplatePath,
+      "**",
+      "*.pug"
+    );
 
     this.sourceImagesPath = path.resolve(this.rootDirectory, "src", "images");
     this.sourceImagesFiles = path.resolve(
@@ -47,6 +59,7 @@ class GulpBase {
       "js"
     );
     this.destinationCss = path.resolve(this.rootDirectory, "assets", "css");
+    this.destinationTemplate = path.resolve(this.rootDirectory);
     this.destinationImages = path.resolve(
       this.rootDirectory,
       "assets",
@@ -60,7 +73,18 @@ class GulpBase {
     this.javascriptAssembly = gulp.series(this.handleWebPackJs.bind(this));
     this.sassAssembly = gulp.series(this.handleSassToCssMinify.bind(this));
     this.cssAssembly = gulp.series(this.handleMinifyCss.bind(this));
+    this.templateAssembly = gulp.series(this.handlePug2Html.bind(this));
     this.imagesAssembly = gulp.series(this.handleMinifyImages.bind(this));
+  }
+
+  handlePug2Html() {
+    return gulp
+      .src([this.sourceTemplateFiles, this.nonIncludeNodeModules], {
+        allowEmpty: true,
+      })
+      .pipe(cache("handlePug2Html"))
+      .pipe(pug({}))
+      .pipe(gulp.dest(this.destinationTemplate));
   }
 
   handleMinifyImages() {
@@ -182,12 +206,14 @@ class GulpBase {
     gulp.watch(this.sourceCssFiles, this.cssAssembly);
     gulp.watch(this.sourceJavascriptFiles, this.javascriptAssembly);
     gulp.watch(this.sourceImagesFiles, this.imagesAssembly);
+    gulp.watch(this.sourceTemplateFiles, this.templateAssembly);
 
     this.default = gulp.parallel(
       this.javascriptAssembly,
       this.cssAssembly,
       this.sassAssembly,
-      this.imagesAssembly
+      this.imagesAssembly,
+      this.templateAssembly
     );
   }
 }
